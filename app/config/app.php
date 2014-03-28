@@ -109,8 +109,7 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Laracasts\Utilities\UtilitiesServiceProvider',
-        // https://github.com/fedeisas/laravel-js-routes
-        'Fedeisas\LaravelJsRoutes\LaravelJsRoutesServiceProvider'
+        'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*

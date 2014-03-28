@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('content')
-<?php dd($users); ?>
 <br /><br /><br /><br />
 <div class="modalwrapper">
 

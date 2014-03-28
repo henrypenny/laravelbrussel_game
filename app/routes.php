@@ -12,12 +12,7 @@
 */
 
 // Show the login page at root level.
-//Route::get('/', "SessionsController@create");
-
-Route::get("/", function() {
-    $users = User::all();
-    return View::make("index", array("users" => $users));
-});
+Route::get('/', "SessionsController@create");
 
 // Session routes
 Route::get("login", "SessionsController@create");
