@@ -11,6 +11,15 @@ I personally use this game to learn more about Laravel and other web techniques.
 
 If you need a "project" to demonstrate code, you are more than welcome to use this repository.
 
+## Packages used
+
+- Laravel 4.1.24
+- JQuery
+- Laravel PHP debug bar
+- Way generator package
+- Laravel IDE helper
+- Laracasts Utilities
+
 ## Licensing
 
 - The custom game code is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
