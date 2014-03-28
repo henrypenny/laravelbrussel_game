@@ -1,0 +1,93 @@
+var targetSize = 100;		// Size of the target in px.
+var targetColor = "cyan";	// Color of the target ring
+var targetTimeOut = 2000;	// Timeout of the target - 200 = 1s
+var targetLifes = 3;		// Number of hits the target can take
+
+var targetTime = 0;
+var scoreTotalTemp = 0;
+var gameState = 0;
+
+
+// SETTIMEOUT TimeLimit
+	function targetTimer() {		
+		running = setInterval(function(){
+		if(targetTime >= targetTimeOut) {					// When ring is full
+			targetLifes--;							// Loose a healthpoint
+			targetTime = 0;							// Start over		
+		}
+		$(".dial").val((targetTime/targetTimeOut)*100).trigger("change"); 	// Change the value of the timering in %
+		targetTime++								// Make the ring turn
+		if(targetLifes == 2) {							// Loosing healthpoints here!
+			$("#hp3").hide();
+		}
+		if(targetLifes == 1) {
+			$("#hp3, #hp2").hide();
+		}								
+		if(targetLifes == 0) { 							// Game over! Stop this madness
+			$("#hp3, #hp2, #hp1").hide();
+			gameState = 2;
+			clearInterval(running);
+			$(".target").hide();
+			$(".modal").show();
+		}					
+		},2);
+}
+
+$(document).ready(function(){
+
+	targetTimer();
+
+								// Every time you click the target
+	$(".target").click(function(){
+		
+		$(".score").show();
+		var posHorizontal = Math.random()*window.innerWidth;	// Calculate a new random spot on the screen
+		var posVertical = Math.random()*window.innerHeight;
+
+		if(posVertical > (window.innerHeight / 2)) {		// Make sure the target stays fully on screen
+			var h = Math.floor(posVertical-targetSize);					
+		} else {
+			var h = Math.floor(posVertical+targetSize);
+		}
+
+		if(posHorizontal > (window.innerWidth / 2)) {
+			var w = Math.floor(posHorizontal-targetSize);					
+		} else {
+			var w = Math.floor(posHorizontal+targetSize);
+		}
+		
+
+		var score = (250-targetTime);		// Calculate the new total score
+		var scoreTotal = scoreTotalTemp + score
+		scoreTotalTemp = scoreTotal;
+
+		
+		$('.scoreTotal').html(scoreTotal);			// Display the new total score
+		$('.score').html(score).fadeOut("slow");		// Display targetpoints
+
+		$(this).css("top", h).css("left", w);			// Place the target at a random spot
+		targetTimeOut -=10;					// Up the game by making it faster
+		targetTime = 0;						// Reset the timer after click
+
+	});
+									
+	$(".dial").knob({						// Style the inner circle dynamicaly	
+		bgColor: "transparent",
+		fgColor: targetColor,
+		width: targetSize,
+		height: targetSize,
+		thickness: 0.05,
+		readOnly: true,
+		displayInput: false,
+	});
+									
+	$(".target").css({						// Make the target-disk 5px larger than the targetTimeRing
+		"height": targetSize + 5,
+		"width": targetSize + 5,
+	});
+
+
+
+	
+
+});

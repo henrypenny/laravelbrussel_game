@@ -1,0 +1,169 @@
+html {
+  height: 100%;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid cyan;
+  border-left: 1px solid cyan;
+  color: white;
+  font-size: 1.5em;
+  padding-left: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+body {
+	font-family: Orbitron, Arial;
+	cursor: url("../img/pointer-cursor.png") 30 30, auto;
+	background:url("../img/background.png") #000;
+	background-repeat:no-repeat;
+	background-position:bottom;
+	margin:0;
+	overflow: hidden;
+  min-height: 100%;
+}
+
+.pointer-cursor-lock {
+	width: 60px;
+	height: 60px;
+	background: url("../img/pointer-cursor-lock.png") no-repeat left top;
+	position: absolute;
+	display: none;
+	top: 25;
+	left: 25;
+	z-index: 1000;
+}
+
+.target {
+	color: cyan;
+	padding-top: 5px;
+	padding-left: 5px;
+	position: absolute;
+	border-radius: 100%;
+	background-color: transparent;
+	border: 5px solid cyan;
+}
+
+.target:hover {
+	cursor: url("../img/pointer-cursor-lock.png") 30 30, auto;
+}
+
+.powerUp {
+	display: none;
+	height: 100px;
+	width: 100px;
+	color: #FFE64D;
+	font-size: 3em;
+	padding-top: 5px;
+	padding-left: 5px;
+	position: absolute;
+	border-radius: 100%;
+	background-color: transparent;
+	border: 5px solid #FFE64D;
+}
+
+.powerUp i {
+	margin: 25px;
+}
+
+.score {
+	width: 50px;
+	height: 20px;
+	color:white;
+	position: relative;
+	top: -55px;
+	left: 35px;
+}
+
+.panel {
+	border: 1px solid cyan;
+	width:200px;
+	position: absolute;
+	right:10px;
+	top:10px;
+	padding: 10px;
+	padding-left:20px;
+	color: cyan;
+	-webkit-border-top-right-radius: 25px;
+	-webkit-border-bottom-left-radius: 25px;
+	-moz-border-radius-topright: 25px;
+	-moz-border-radius-bottomleft: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.health {
+	position: absolute;
+	right:10px;
+	top:50px;
+}
+
+.modalwrapper {
+  display: none;
+  margin-top: 10px;
+}
+
+.modal {
+	border: 2px solid cyan;
+	background-color: black;
+  color: white;
+	opacity:0.6;
+	filter:alpha(opacity=60); /* For IE8 and earlier */
+	height:400px;
+	width: 90%;
+	margin: 0 auto;
+	-webkit-border-top-right-radius: 25px;
+	-webkit-border-bottom-left-radius: 25px;
+	-moz-border-radius-topright: 25px;
+	-moz-border-radius-bottomleft: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	padding: 1em;
+}
+
+.gameOver { /* Game over */
+  color:  white;
+  position: relative;
+  top: -400px;
+  left: 100px;
+}
+
+.buttonStart {
+  margin-top: 10px;
+  outline: none;
+  color: white;
+  border: 1px solid cyan;
+  width: 75%;
+  max-width: 200px;
+  padding: 10px;
+  padding-left: 10px;
+  -webkit-border-top-right-radius: 25px;
+  -webkit-border-bottom-left-radius: 25px;
+  -moz-border-radius-topright: 25px;
+  -moz-border-radius-bottomleft: 25px;
+}
+
+#mode input[type="radio"] {
+  display: none;
+}
+
+#mode input[type="radio"]:checked + label {
+  background-color: red;
+}
+
+#mode label {
+  width: 100px;
+  margin-bottom: 5px;
+  display:inline-block;
+  padding: 4px 12px;
+  border: 1px solid #ddd;
+  cursor: url("../img/pointer-cursor-lock.png") 30 30, auto;
+}
+
+.scorelist li {
+  list-style: none;
+}
