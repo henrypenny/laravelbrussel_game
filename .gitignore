@@ -1,8 +1,11 @@
 /bootstrap/compiled.php
 /vendor
+./ide
 composer.phar
 composer.lock
 .env.local.php
 .env.php
 .DS_Store
 Thumbs.db
+_ide_helper.php
+_ide_helper_models.php
